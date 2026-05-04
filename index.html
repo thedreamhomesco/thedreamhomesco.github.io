@@ -4,354 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Dream Homes Co. & Company</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --gold: #d6ad45;
-      --gold-soft: #f0d486;
-      --deep: #161313;
-      --cream: #f7f1e7;
-      --marble: #f2eee6;
-      --text: #2b241f;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--cream);
+      padding: 0;
+      background: #efe7dc;
+      width: 100%;
+      min-height: 100%;
+      font-family: Arial, sans-serif;
     }
 
-    .page {
+    .site-wrap {
+      width: 100%;
       max-width: 430px;
       margin: 0 auto;
-      background: var(--cream);
-      box-shadow: 0 0 40px rgba(0,0,0,.18);
-      min-height: 100vh;
-    }
-
-    .hero {
-      min-height: 680px;
       position: relative;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.48)),
-        url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=90') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 42px 26px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      background: #efe7dc;
+      box-shadow: 0 0 40px rgba(0,0,0,0.18);
     }
 
-    .top-logo {
+    .mockup {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Invisible clickable phone area over the footer phone number */
+    .phone-link {
       position: absolute;
-      top: 34px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--gold);
-      text-align: center;
-      line-height: 1;
-      letter-spacing: .08em;
-      filter: drop-shadow(0 0 10px rgba(214,173,69,.45));
+      left: 31%;
+      right: 31%;
+      bottom: 4.9%;
+      height: 1.7%;
+      z-index: 10;
+      display: block;
+      text-indent: -9999px;
+      overflow: hidden;
     }
 
-    .top-logo .circle {
-      width: 78px;
-      height: 78px;
-      border: 1.4px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      margin: 0 auto 7px;
-    }
-
-    .top-logo .co {
-      font-size: 11px;
-      letter-spacing: .42em;
-      margin-left: .42em;
-      font-weight: 500;
-    }
-
-    .hero-inner {
-      margin-top: 80px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 44px;
-      line-height: 1.08;
-      margin: 0 auto 20px;
-      max-width: 360px;
-      font-weight: 700;
-      text-shadow: 0 0 24px rgba(214,173,69,.42);
-    }
-
-    .hero p {
-      margin: 0 auto;
-      max-width: 330px;
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: rgba(255,255,255,.9);
-      font-weight: 300;
-    }
-
-    .hero-btn {
-      margin-top: 34px;
-      display: inline-block;
-      padding: 15px 34px;
-      border: 1.5px solid rgba(240,212,134,.95);
-      color: white;
-      background: rgba(20,17,17,.26);
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: .16em;
-      font-weight: 600;
-      text-transform: uppercase;
-      box-shadow:
-        0 0 18px rgba(214,173,69,.65),
-        inset 0 0 10px rgba(214,173,69,.18);
-      transition: .25s ease;
-    }
-
-    .hero-btn:hover {
-      box-shadow:
-        0 0 28px rgba(214,173,69,.95),
-        inset 0 0 14px rgba(214,173,69,.32);
-      transform: translateY(-1px);
-    }
-
-    .signup {
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,.88), rgba(242,238,230,.94)),
-        linear-gradient(135deg, #f8f4ed, #e9e2d5);
-      padding: 56px 28px 48px;
-      text-align: center;
-      border-top: 1px solid rgba(214,173,69,.35);
-      border-bottom: 1px solid rgba(214,173,69,.25);
-    }
-
-    .signup h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 34px;
-      line-height: 1.1;
-      margin: 0 0 14px;
-      color: #2a211c;
-    }
-
-    .signup p {
-      margin: 0 auto 28px;
-      max-width: 350px;
-      color: #5a4d43;
-      line-height: 1.65;
-      font-size: 13.5px;
-    }
-
-    .email-row {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      gap: 10px;
-      max-width: 370px;
-      margin: 0 auto;
-    }
-
-    .email-row input {
-      min-width: 0;
-      flex: 1;
-      border: 1px solid rgba(60,48,39,.2);
-      background: rgba(255,255,255,.72);
-      border-radius: 999px;
-      padding: 14px 16px;
-      font-size: 12px;
-      outline: none;
-      color: #302820;
-      box-shadow: 0 6px 18px rgba(70,55,35,.06);
-    }
-
-    .email-row input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 18px rgba(214,173,69,.42);
-    }
-
-    .email-row button {
-      border: none;
-      border-radius: 999px;
-      padding: 0 17px;
-      background: linear-gradient(135deg, #f0d486, #d6ad45 45%, #a77a25);
-      color: #17120d;
-      font-size: 10px;
-      letter-spacing: .12em;
-      font-weight: 700;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(214,173,69,.68);
-      white-space: nowrap;
-    }
-
-    .about {
-      padding: 54px 31px 58px;
-      text-align: center;
-      background: #fbf7ef;
-    }
-
-    .about p {
-      margin: 0 auto;
-      max-width: 355px;
-      font-size: 14px;
-      line-height: 1.85;
-      color: #3f342d;
-    }
-
-    .signature {
-      font-family: 'Great Vibes', cursive;
-      font-size: 26px;
-      color: var(--gold);
-      white-space: nowrap;
-      margin-left: 4px;
-    }
-
-    .footer {
-      background: #171313;
-      color: rgba(255,255,255,.78);
-      text-align: center;
-      padding: 42px 26px 34px;
-    }
-
-    .footer-logo {
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      margin: 0 auto 18px;
-      width: 148px;
-      height: 148px;
-      border: 1.4px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      filter: drop-shadow(0 0 11px rgba(214,173,69,.35));
-    }
-
-    .footer-logo .the {
-      font-family: 'Great Vibes', cursive;
-      font-size: 24px;
-      margin-bottom: -2px;
-    }
-
-    .footer-logo .dream {
-      font-size: 16px;
-      letter-spacing: .1em;
-      line-height: 1.1;
-    }
-
-    .footer-logo .cofull {
-      font-family: 'Inter', sans-serif;
-      font-size: 7px;
-      letter-spacing: .17em;
-      margin-top: 7px;
-      text-transform: uppercase;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin: 20px 0 16px;
-      font-size: 12px;
-      letter-spacing: .06em;
-    }
-
-    .footer a {
-      color: rgba(255,255,255,.82);
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: var(--gold-soft);
-    }
-
-    .copyright {
-      font-size: 11px;
-      color: rgba(255,255,255,.48);
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 460px) {
-      .page {
-        max-width: 100%;
-      }
-      h1 {
-        font-size: 39px;
-      }
-      .email-row {
-        flex-direction: column;
-      }
-      .email-row button {
-        padding: 14px 16px;
+    @media (min-width: 431px) {
+      body {
+        display: flex;
+        justify-content: center;
       }
     }
   </style>
 </head>
-
 <body>
-  <main class="page">
-
-    <section class="hero">
-      <div class="top-logo">
-        <div class="circle">DH</div>
-        <div class="co">CO</div>
-      </div>
-
-      <div class="hero-inner">
-        <h1>Where your dream home becomes reality.</h1>
-        <p>A more personal approach to buying, selling, and renting—tailored to your lifestyle.</p>
-        <a class="hero-btn" href="#signup">Find Your Dream Home</a>
-      </div>
-    </section>
-
-    <section class="signup" id="signup">
-      <h2>Be the First to Know</h2>
-      <p>Get exclusive access to new listings, rental opportunities, and curated properties before they hit the market.</p>
-
-      <form class="email-row">
-        <input type="email" placeholder="Enter your email for exclusive access" />
-        <button type="submit">Get Early Access</button>
-      </form>
-    </section>
-
-    <section class="about">
-      <p>
-        At The Dream Homes Co., I believe finding the right home should feel seamless, intentional, and exciting.
-        Whether you're searching for your first home, a luxury property, or the perfect rental, I offer a more personal,
-        guided experience tailored to your lifestyle.<span class="signature"> — J’La</span>
-      </p>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-logo" aria-label="The Dream Homes Co. & Company logo">
-        <div class="the">the</div>
-        <div class="dream">DREAM<br>HOMES</div>
-        <div class="cofull">Co. &amp; Company</div>
-      </div>
-
-      <div class="footer-links">
-        <a href="tel:14706702995">470-670-2995</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-
-      <p class="copyright">© 2025 The Dream Homes Co. &amp; Company</p>
-    </footer>
-
+  <main class="site-wrap">
+    <img class="mockup" src="final-landing-page.jpeg" alt="The Dream Homes Co. & Company landing page" />
+    <a class="phone-link" href="tel:14706702995" aria-label="Call The Dream Homes Co. & Company at 470-670-2995">
+      470-670-2995
+    </a>
   </main>
 </body>
 </html>
